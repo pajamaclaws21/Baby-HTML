@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PJ's Baby HTML Editor</title>
+<style>
+html, button {
+font-family: monospace;
+}
+hr {
+height: 1.5px;
+background-color: black;
+}
+textarea {
+resize: vertical; 
+width: 45%; 
+float: left; 
+border: 1px dashed black;
+}
+</style>
+</head>
+<body>
+
+<b style="font-size: 32px;">PJ's Baby HTML Editor       </b><button onclick="executeCode()">Run</button>
+<br><hr><br>
+<textarea id="text" placeholder="Type here."></textarea>
+<div id="div" style="float: left; margin-left: 10px;">When you run, your code will show up here!</div>
+
+<script>
+function executeCode() {
+var text = document.getElementById("text").value
+var div = document.getElementById("div")
+div.innerHTML = text;
+}
+</script>
+
+</body>
+</html>
