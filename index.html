@@ -22,14 +22,18 @@ border: 1px dashed black;
 
 <b style="font-size: 32px;">PJ's Baby HTML Editor       </b><button onclick="executeCode()">Run</button>
 <br><hr><br>
-<textarea id="text" placeholder="Type here."></textarea>
-<div id="div" style="float: left; margin-left: 10px;">When you run, your code will show up here!</div>
+<textarea id="text" placeholder="Type here." style="resize: none; height: 100vh;"></textarea>
+<iframe id="div" style="float: left; margin-left: 10px; height: 100vh; border: 0px;"></iframe>
 
 <script>
 function executeCode() {
 var text = document.getElementById("text").value
-var div = document.getElementById("div")
-div.innerHTML = text;
+var iframeElement = document.getElementById("div")
+
+iframeElement.src = "about:blank";
+iframeElement.contentWindow.document.open();
+iframeElement.contentWindow.document.write(text);
+iframeElementcontentWindow.document.close();
 }
 </script>
 
