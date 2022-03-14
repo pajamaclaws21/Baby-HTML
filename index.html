@@ -11,10 +11,18 @@ height: 1.5px;
 background-color: black;
 }
 textarea {
-resize: vertical; 
+resize: none; 
+height: 100vh;
 width: 45%; 
 float: left; 
-border: 1px dashed black;
+border: 0.75px dashed black;
+}
+iframe {
+float: left; 
+margin-left: 10px; 
+height: 100vh;
+width: 55%;
+border: 0.75px dashed black;
 }
 </style>
 </head>
@@ -22,8 +30,8 @@ border: 1px dashed black;
 
 <b style="font-size: 32px;">PJ's Baby HTML Editor       </b><button onclick="executeCode()">Run</button>
 <br><hr><br>
-<textarea id="text" placeholder="Type here." style="resize: none; height: 100vh;"></textarea>
-<iframe id="div" style="float: left; margin-left: 10px; height: 100vh; border: 0px;"></iframe>
+<textarea id="text" placeholder="Type here."></textarea>
+<iframe id="div"></iframe>
 
 <script>
 function executeCode() {
