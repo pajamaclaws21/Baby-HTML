@@ -2,6 +2,8 @@
 <html>
 <head>
 <title>Baby.HTML by Pajama</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<!-- To Add: stackoverflow.com/questions/7961721/how-do-i-install-a-custom-font-on-an-html-site -->
 <style>
 html, button {
 font-family: monospace;
@@ -38,6 +40,7 @@ function executeCode() {
 var text = document.getElementById("text").value
 var iframeElement = document.getElementById("div")
 
+// The following IFrame code is from Stack Overflow.
 iframeElement.src = "about:blank";
 iframeElement.contentWindow.document.open();
 iframeElement.contentWindow.document.write(text);
