@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>PJ's Baby HTML Editor</title>
+<title>Baby.HTML by Pajama</title>
 <style>
 html, button {
 font-family: monospace;
@@ -28,9 +28,9 @@ border: 0.75px dashed black;
 </head>
 <body>
 
-<b style="font-size: 32px;">PJ's Baby HTML Editor       </b><button onclick="executeCode()">Run</button>
+<b style="font-size: 32px;">Baby.HTML       </b><button onclick="executeCode()">Run</button>
 <br><hr><br>
-<textarea id="text" placeholder="Type here."></textarea>
+<textarea id="text" placeholder="Write your code here."></textarea>
 <iframe id="div"></iframe>
 
 <script>
@@ -41,7 +41,7 @@ var iframeElement = document.getElementById("div")
 iframeElement.src = "about:blank";
 iframeElement.contentWindow.document.open();
 iframeElement.contentWindow.document.write(text);
-iframeElementcontentWindow.document.close();
+iframeElement.contentWindow.document.close();
 }
 </script>
 
