@@ -42,3 +42,8 @@ function appInit(){
 };
 
 window.addEventListener("load", (event) => {appInit()});
+
+// Handle JS errors (taken from iframe.js)
+window.onerror = (message, source, lineno, colno, error) => {
+    console.error(`error at ${source} (${lineno},${colno}): ${message}`);
+};
