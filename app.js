@@ -26,7 +26,7 @@ function appInit(){
     </script>`);
 
     iframeWindow.document.close();
-    
+
     // sending ping to iframe
     alert("pinging iframe");
     iframeWindow.postMessage("Signaling this is the source document");
@@ -46,6 +46,6 @@ function appInit(){
     console.info = function(x){myConsole.innerHTML += `<p style="color: green">INFO ${x}</p><br>`};
     console.warn = function(x){myConsole.innerHTML += `<p style="color: pink">WARN ${x}</p><br>`};
     */
-}
+};
 
 window.addEventListener("load", (event) => {appInit()});
