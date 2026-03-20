@@ -1,6 +1,7 @@
 function appInit(){
-    //alert("App init started");
-    //alert("writing document");
+    console.log("app init started");
+    console.log("writing to iframe");
+
     var iframeWindow = document.getElementById('contentwindow-v9sdv907s9d0v').contentWindow;
     iframeWindow.document.open();
     // Adds code to iframe to alert us to console events. Obviously see iframe.js.
@@ -8,10 +9,11 @@ function appInit(){
     iframeWindow.document.close();
 
     // sending ping to iframe
-    //alert("pinging iframe");
+    console.log("pinging iframe");
     iframeWindow.postMessage("Signaling this is the source document");
 
     // setting up custom console
+    console.log("setting up custom console");
     var myConsole = document.getElementById("console-2dgds709ga");
     console.clear = function(x){myConsole.innerHTML += `<p>Console Cleared</p><br>`};
     console.log = function(x){myConsole.innerHTML += `<p style="color: black">Log ${x}</p><br>`};
@@ -21,6 +23,7 @@ function appInit(){
     console.warn = function(x){myConsole.innerHTML += `<p style="color: pink">Warn ${x}</p><br>`};
 
     // listening for console messages from iframe
+    console.log("Listening for messages! Try me~");
     window.addEventListener("message", (event) => {
         if (event.data = "clear") console.clear();
         try {
@@ -34,7 +37,6 @@ function appInit(){
         } catch {
             console.log(`JSON parse failed with message: ${event.data}`);
         }
-        alert(event.data);
     });
 };
 
