@@ -1,9 +1,6 @@
 function appInit(){
-    console.log("App init started");
     alert("App init started");
-
-    document.getElementById('contentwindow-v9sdv907s9d0v').style.background = "blue";
-
+    alert("writing document");
     var iframeWindow = document.getElementById('contentwindow-v9sdv907s9d0v').contentWindow;
     iframeWindow.document.open();
 
@@ -15,23 +12,23 @@ function appInit(){
 
         // listening to ping so we can save the source
         window.addEventListener("message", (event) => {
-        if (event.origin != "https://pajamaclaws.net/Baby-HTML") return;
-        if (!bHPage) bHPage = event.source;
-        if (!bHOrigin) bHOrigin = event.origin;
-        bHPage.postMessage("Signal recieved -- message content ignored", bHOrigin);
+            if (!bHPage) bHPage = event.source;
+            bHPage.postMessage("Signal recieved -- message content ignored");
         });
 
         // Console functions post to bHPage
-        console.clear = function(x){bHPage.postMessage("clear", bHOrigin)};
-        console.log = function(x){bHPage.postMessage("log", bHOrigin)};
-        console.error = function(x){bHPage.postMessage("error", bHOrigin)};
-        console.debug = function(x){bHPage.postMessage("debug", bHOrigin)};
-        console.info = function(x){bHPage.postMessage("info", bHOrigin)};
-        console.warn = function(x){bHPage.postMessage("warn", bHOrigin)};
+        console.clear = function(x){bHPage.postMessage("clear")};
+        console.log = function(x){bHPage.postMessage("log")};
+        console.error = function(x){bHPage.postMessage("error")};
+        console.debug = function(x){bHPage.postMessage("debug")};
+        console.info = function(x){bHPage.postMessage("info")};
+        console.warn = function(x){bHPage.postMessage("warn")};
     </script>`);
 
     iframeWindow.document.close();
+    
     // sending ping to iframe
+    alert("pinging iframe");
     iframeWindow.postMessage("Signaling this is the source document");
 
     // listening for console events
@@ -50,4 +47,5 @@ function appInit(){
     console.warn = function(x){myConsole.innerHTML += `<p style="color: pink">WARN ${x}</p><br>`};
     */
 }
-export { appInit };
+
+window.addEventListener("load", (event) => {appInit()});
