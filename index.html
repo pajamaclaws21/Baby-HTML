@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Baby.HTML by Pajama</title>
-<link rel="shortcut icon" href="/favicon.ico">
-<style>
-html, button {
-font-family: monospace;
-}
-hr {
-height: 1.5px;
-background-color: black;
-}
-textarea {
-resize: none; 
-height: 85vh;
-width: 45%; 
-float: left; 
-border: 0.75px dashed black;
-}
-iframe {
-float: left; 
-margin-left: 10px; 
-height: 85vh;
-width: 50%;
-border: 0.75px dashed black;
-}
-</style>
-</head>
-<body>
-
-<b style="font-size: 32px;">Baby.HTML       </b><button onclick="executeCode()">Run</button>
-<br><hr><br>
-<textarea id="text" placeholder="Write your code here."></textarea>
-<iframe id="div"></iframe>
-
-<script>
-function executeCode() {
-var text = document.getElementById("text").value
-var iframeElement = document.getElementById("div")
-
-// The following IFrame code is from Stack Overflow.
-iframeElement.src = "about:blank";
-iframeElement.contentWindow.document.open();
-iframeElement.contentWindow.document.write(text);
-iframeElement.contentWindow.document.close();
-}
-</script>
-
-</body>
+	<head>
+	  <title>baby.html</title>
+		<link rel="shortcut icon" href="/favicon.ico">
+		<style>
+      html, button {
+        font-family: monospace;
+      }
+      hr {
+        height: 1.5px;
+        background-color: black;
+      }
+      textarea {
+        resize: none; 
+        height: 85vh;
+        width: 45%; 
+        float: left; 
+        border: 0.75px dashed black;
+      }
+      iframe {
+        float: left; 
+        margin-left: 10px; 
+        height: 85vh;
+        width: 50%;
+        border: 0.75px dashed black;
+      }
+    </style>
+    <script>
+      let myConsole = document.getElementById("console");
+      console.clear = function(x){myConsole.innerHTML += `<p>Console Cleared</p><br>`};
+      console.log = function(x){myConsole.innerHTML += `<p style="color: black">LOG ${x}</p><br>`};
+      console.error = function(x){myConsole.innerHTML += `<p style="color: red">ERR ${x}</p><br>`};
+      console.debug = function(x){myConsole.innerHTML += `<p style="color: blue">DEBUG ${x}</p><br>`};
+      console.info = function(x){myConsole.innerHTML += `<p style="color: green">INFO ${x}</p><br>`};
+      console.warn = function(x){myConsole.innerHTML += `<p style="color: pink">WARN ${x}</p><br>`};
+    </script>
+	</head>
+  <body>
+			<b style="font-size: 32px;">baby.html</b>
+			<button onclick="{let text = document.getElementById('text').value; let page = document.getElementById('contentwindow').contentWindow.document; page.open(); page.write(text); page.close()}()">Run</button>
+			<br>
+			<hr>
+			<br>
+      <textarea id="text" placeholder="Write your code here."></textarea>
+      <iframe id="contentwindow" src="about:blank"></iframe>
+      <div id="console">Empty Console</div>
+  </body>
 </html>
