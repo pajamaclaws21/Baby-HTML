@@ -2,6 +2,8 @@ function appInit(){
     console.log("App init started");
     alert("App init started");
 
+    document.getElementById('contentwindow-v9sdv907s9d0v').style.background = "blue";
+
     var iframeWindow = document.getElementById('contentwindow-v9sdv907s9d0v').contentWindow;
     iframeWindow.document.open();
 
