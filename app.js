@@ -5,7 +5,7 @@ function appInit(){
     var iframeWindow = document.getElementById('contentwindow-v9sdv907s9d0v').contentWindow;
     iframeWindow.document.open();
     // Adds code to iframe to alert us to console events. Obviously see iframe.js.
-    iframeWindow.document.write("<script src='https://pajamaclaws.net/Baby-HTML/iframe.js'></script>");
+    iframeWindow.document.write("<script src='https://pajamaclaws.net/babyhtml/iframe.js'></script>");
     iframeWindow.document.close();
 
     // sending ping to iframe
