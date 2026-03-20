@@ -28,20 +28,62 @@
     </style>
 	</head>
   <body>
-	<b style="font-size: 32px;">baby.html</b>
-	<!-- long asf ids make collisions very rare"-->
-	<button onclick="document.getElementById('contentwindow-9214829047012937812094712093812094812094').innerHTML = document.getElementById('text-9347293570395781029480129480954809481094801').value;">Run</button>
-	<!--<button onclick="let text = document.getElementById('text').value; let page = document.getElementById('contentwindow').contentWindow.document; page.open(); page.write(text); page.close()">Run</button>
-	-->
-	<br>
-	<hr>
-	<br>
-    <textarea id="text-9347293570395781029480129480954809481094801" placeholder="Write your code here."></textarea>
-    <content id="contentwindow-9214829047012937812094712093812094812094" src="about:blank"></iframe>
+	  <b style="font-size: 32px;">baby.html</b>
+	  <!-- long asf ids make collisions very rare"-->
+	  <button onclick="
+      var text = document.getElementById('text-12949124a09s70a').value; 
+      var iframeDocument = document.getElementById('contentwindow-v9sdv907s9d0v').contentWindow.document;
+      iframeDocument.open();
+      iframeDocument.write(text);
+      iframeDocument.close()
+      ">Run</button>
+	  <br>
+	  <hr>
+	  <br>
+    <textarea id="text-12949124a09s70a" placeholder="Write your code here."></textarea>
+    <iframe id="contentwindow-v9sdv907s9d0v" src="about:blank"></iframe>
     <!--<div id="console">Empty Console</div>-->
 
-	<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-	<script>eruda.init();</script>
+	  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+	  <script>eruda.init();</script>
+
+    <script>
+      var iframeWindow = document.getElementById('contentwindow-v9sdv907s9d0v').contentWindow;
+      iframeWindow.document.open();
+
+      // Adding code to iframe to alert us to console events.
+      // See https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+      iframeWindow.document.write(`
+        var bHPage;
+        var bHOrigin;
+
+        // listening to ping so we can save the source
+        window.addEventListener("message", (event) => {
+          if (event.origin != "https://pajamaclaws.net/Baby-HTML") return;
+          if (!bHPage) bHPage = event.source;
+          if (!bHOrigin) bHOrigin = event.origin;
+          bHPage.postMessage("Signal recieved -- message content ignored", bHOrigin);
+        });
+
+        // Console functions post to bHPage
+        console.clear = function(x){bHPage.postMessage("clear", bHOrigin)};
+        console.log = function(x){bHPage.postMessage("log", bHOrigin)};
+        console.error = function(x){bHPage.postMessage("error", bHOrigin)};
+        console.debug = function(x){bHPage.postMessage("debug", bHOrigin)};
+        console.info = function(x){bHPage.postMessage("info", bHOrigin)};
+        console.warn = function(x){bHPage.postMessage("warn", bHOrigin)};
+      `);
+
+      iframeWindow.document.close();
+      // sending ping to iframe
+      iframeWindow.postMessage("Signaling this is the source document", "about:blank");
+      
+      // listening for console events
+      window.addEventListener("message", (event) => {
+        if (event.origin != "about:blank") return;
+        alert(event.data);
+      });
+    </script>
 	
     <!--<script>
       let myConsole = document.getElementById("console");
