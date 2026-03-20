@@ -18,7 +18,7 @@
         float: left; 
         border: 0.75px dashed black;
       }
-      content {
+      iframe {
         float: left; 
         margin-left: 10px; 
         height: 85vh;
@@ -54,6 +54,7 @@
       // Adding code to iframe to alert us to console events.
       // See https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
       iframeWindow.document.write(`
+        <script>
         var bHPage;
         var bHOrigin;
 
@@ -72,15 +73,15 @@
         console.debug = function(x){bHPage.postMessage("debug", bHOrigin)};
         console.info = function(x){bHPage.postMessage("info", bHOrigin)};
         console.warn = function(x){bHPage.postMessage("warn", bHOrigin)};
+        </script>
       `);
 
       iframeWindow.document.close();
       // sending ping to iframe
-      iframeWindow.postMessage("Signaling this is the source document", "about:blank");
+      iframeWindow.postMessage("Signaling this is the source document");
       
       // listening for console events
       window.addEventListener("message", (event) => {
-        if (event.origin != "about:blank") return;
         alert(event.data);
       });
     </script>
