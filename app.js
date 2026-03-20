@@ -23,7 +23,7 @@ function appInit(){
     console.warn = function(x){myConsole.innerHTML += `<p style="color: pink">Warn ${x}</p><br>`};
 
     // listening for console messages from iframe
-    console.log("Listening for messages! Try me~");
+    console.log("Console is ready! Try me~");
     window.addEventListener("message", (event) => {
         if (event.data = "clear") console.clear();
         try {
