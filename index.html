@@ -4,25 +4,30 @@
 	  <title>baby.html</title>
 		<link rel="shortcut icon" href="/favicon.ico">
 		<style>
-      html, button {
+      * {
         font-family: monospace;
       }
+
       hr {
         height: 1.5px;
         background-color: black;
       }
+
+      main {
+        display: flex;
+        position: relative;
+      }
+
       textarea {
-        resize: none; 
+        max-width: 45%;
+        flex-grow: 1;
         height: 85vh;
-        width: 45%; 
-        float: left; 
         border: 0.75px dashed black;
       }
+
       iframe {
-        float: left; 
-        margin-left: 10px; 
-        height: 85vh;
         width: 50%;
+        height: 85vh;
         border: 0.75px dashed black;
       }
     </style>
@@ -37,12 +42,13 @@
       iframeDocument.write(text);
       iframeDocument.close()
       ">Run</button>
-	  <br>
-	  <hr>
-	  <br>
-    <textarea id="text-12949124a09s70a" placeholder="Write your code here."></textarea>
-    <iframe id="contentwindow-v9sdv907s9d0v" src="about:blank"></iframe>
-    <div id="console-2dgds709ga">Empty Console</div>
+
+    <main>
+      <textarea id="text-12949124a09s70a" placeholder="Write your code here."></textarea>
+      <iframe id="contentwindow-v9sdv907s9d0v" src="about:blank"></iframe>
+    </main>
+
+    <div id="console-2dgds709ga"></div>
 
 	  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
 	  <script>eruda.init();</script>
