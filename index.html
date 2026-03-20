@@ -26,7 +26,21 @@
         border: 0.75px dashed black;
       }
     </style>
-    <script>
+	</head>
+  <body>
+	<b style="font-size: 32px;">baby.html</b>
+	<button onclick="let text = document.getElementById('text').value; let page = document.getElementById('contentwindow').contentWindow.document; page.open(); page.write(text); page.close()">Run</button>
+	<br>
+	<hr>
+	<br>
+    <textarea id="text" placeholder="Write your code here."></textarea>
+    <iframe id="contentwindow" src="about:blank"></iframe>
+    <!--<div id="console">Empty Console</div>-->
+
+	<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+	<script>eruda.init();</script>
+	
+    <!--<script>
       let myConsole = document.getElementById("console");
       console.clear = function(x){myConsole.innerHTML += `<p>Console Cleared</p><br>`};
       console.log = function(x){myConsole.innerHTML += `<p style="color: black">LOG ${x}</p><br>`};
@@ -34,16 +48,6 @@
       console.debug = function(x){myConsole.innerHTML += `<p style="color: blue">DEBUG ${x}</p><br>`};
       console.info = function(x){myConsole.innerHTML += `<p style="color: green">INFO ${x}</p><br>`};
       console.warn = function(x){myConsole.innerHTML += `<p style="color: pink">WARN ${x}</p><br>`};
-    </script>
-	</head>
-  <body>
-			<b style="font-size: 32px;">baby.html</b>
-			<button onclick="let text = document.getElementById('text').value; let page = document.getElementById('contentwindow').contentWindow.document; page.open(); page.write(text); page.close()">Run</button>
-			<br>
-			<hr>
-			<br>
-      <textarea id="text" placeholder="Write your code here."></textarea>
-      <iframe id="contentwindow" src="about:blank"></iframe>
-      <div id="console">Empty Console</div>
+    </script>-->
   </body>
 </html>
