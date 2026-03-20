@@ -48,3 +48,4 @@ function appInit(){
     console.warn = function(x){myConsole.innerHTML += `<p style="color: pink">WARN ${x}</p><br>`};
     */
 }
+export { appInit };

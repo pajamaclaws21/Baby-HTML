@@ -47,7 +47,10 @@
 	  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
 	  <script>eruda.init();</script>
 
-    <script src="/app.js"></script>
-    <script>window.addEventListener("load", (event) => {appInit()})</script>
+    <!--<script src="/app.js" type="module"></script>-->
+    <script type="module">
+      import { appInit } from "./app.js";
+      window.addEventListener("load", (event) => {appInit()});
+    </script>
   </body>
 </html>
