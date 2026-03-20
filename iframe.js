@@ -4,7 +4,7 @@ var bHOrigin;
 // See https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
 window.addEventListener("message", (event) => {
     if (!bHPage) bHPage = event.source;
-    bHPage.postMessage("Ping recieved by iframe!");
+    bHPage.postMessage("console ready");
 });
 
 // Console functions post to bHPage
