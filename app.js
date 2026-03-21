@@ -24,6 +24,7 @@ function appInit(){
 
     // listening for console messages from iframe
     window.addEventListener("message", (event) => {
+        alert(event.data);
         if (event.data = "clear"){ console.clear(); };
         if (event.data = "console ready"){ console.log("Console is ready! Try me~"); };
         try {
