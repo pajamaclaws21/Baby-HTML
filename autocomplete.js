@@ -46,8 +46,7 @@ window.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("load", (event) => {
-    input.value = `
-<!DOCTYPE html>
+    input.value = `<!DOCTYPE html>
 <html>
     <head>
         <title>My Page</title>
