@@ -8,7 +8,7 @@ function isTypable(x){
 window.addEventListener("keydown", (event) => {
     var key = event.key;
     var listeningForTag = false;
-    var tagName;
+    var tagName = "";
 
     var input = document.getElementById("text-12949124a09s70a");
 
@@ -16,7 +16,7 @@ window.addEventListener("keydown", (event) => {
         listeningForTag = true;
     } else if (listeningForTag && isTypable(key)) {
         tagName += key.toString();
-    } else if (key == ">") {
+    } else if (key == ">" && listeningForTag) {
         listeningForTag = false;
 
         // from https://bennadel.com/4086
