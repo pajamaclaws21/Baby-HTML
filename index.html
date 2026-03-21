@@ -13,7 +13,8 @@
         position: relative;
       }
 
-      div#text-12949124a09s70a {
+      textarea#text-12949124a09s70a {
+        white-space: pre;
         overflow: scroll;
         resize: horizontal;
         width: 45%;
@@ -45,7 +46,7 @@
     <button onclick="hljs.highlightElement(document.getElementById('text-12949124a09s70a'))">Syntax Highlighting</button>
 
     <main id="babyhtml-main-df8s97">
-      <div id="text-12949124a09s70a" contenteditable="true" spellcheck="false"></div>
+      <textarea id="text-12949124a09s70a" contenteditable="true" spellcheck="false"></textarea>
       <iframe id="contentwindow-v9sdv907s9d0v" src="about:blank"></iframe>
     </main>
 
@@ -55,6 +56,11 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script>
+      document.getElementById("text-12949124a09s70a").addEventListener("input", (event) => {
+
+      });
+    </script>
 
     <!--<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script>eruda.init();</script>-->
