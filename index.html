@@ -43,7 +43,14 @@
       iframeDocument.write(text);
       iframeDocument.close()
       ">Run</button>
-    <button onclick="hljs.highlightElement(document.getElementById('text-12949124a09s70a'))">Syntax Highlighting</button>
+    <button onclick="
+      var oldTextContent;
+      var textEntryElement = document.getElementById('text-12949124a09s70a');
+      oldTextContent = textEntryElement.innerText;
+      textEntryElement.innerHTML = '';
+      textEntryElement.innerText = oldTextContent;
+      hljs.highlightElement(textEntryElement);
+    ">Syntax Highlighting</button>
 
     <main id="babyhtml-main-df8s97">
       <div id="text-12949124a09s70a" class="language-html" contenteditable="true" spellcheck="false"></div>
@@ -56,19 +63,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-
-    <script>
-      var oldTextContent;
-      var textEntryElement = document.getElementById('text-12949124a09s70a');
-      setInterval(() => {
-        if (textEntryElement.innerText != oldTextContent) {
-          oldTextContent = textEntryElement.innerText;
-          textEntryElement.innerHTML = "";
-          textEntryElement.innerText = oldTextContent;
-          hljs.highlightElement(textEntryElement);
-        };
-      }, 1000);
-    </script>
 
     <!--<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script>eruda.init();</script>-->
