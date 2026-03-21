@@ -9,14 +9,20 @@
       }
 
       main {
+        display: flex;
         position: relative;
       }
 
       code {
+        width: 50%;
+        resize: horizontal;
         border: 0.75px dashed black;
       }
 
       iframe {
+        max-width: 100%;
+        width: 45%;
+        flex-grow: 1;
         border: 0.75px dashed black;
       }
 
@@ -35,6 +41,7 @@
       iframeDocument.write(text);
       iframeDocument.close()
       ">Run</button>
+    <button onclick="hljs.highlightAll()">Syntax Highlighting</button>
 
     <main>
       <pre><code id="text-12949124a09s70a" contenteditable="true" spellcheck="false"></code></pre><br>
@@ -47,7 +54,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
 
     <!--<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script>eruda.init();</script>-->
