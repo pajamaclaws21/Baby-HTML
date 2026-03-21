@@ -13,15 +13,14 @@
         position: relative;
       }
 
-      code {
-        width: 50%;
+      div.codeWindow-2194u190 {
+        overflow: scroll;
         resize: horizontal;
-        border: 0.75px dashed black;
+        width: 45%;
+        max-width: 100%;
       }
 
       iframe {
-        resize: horizontal;
-        width: 45%;
         flex-grow: 1;
         border: 0.75px dashed black;
       }
@@ -41,10 +40,10 @@
       iframeDocument.write(text);
       iframeDocument.close()
       ">Run</button>
-    <button onclick="hljs.highlightAll()">Syntax Highlighting</button>
+    <button onclick="hljs.highlightElement(document.getElementById('text-12949124a09s70a'))">Syntax Highlighting</button>
 
     <main>
-      <pre><code id="text-12949124a09s70a" contenteditable="true" spellcheck="false"></code></pre><br>
+      <div class="codeWindow-2194u190" id="text-12949124a09s70a" contenteditable="true" spellcheck="false"></div>
       <iframe id="contentwindow-v9sdv907s9d0v" src="about:blank"></iframe>
     </main>
 
