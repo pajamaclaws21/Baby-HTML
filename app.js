@@ -11,8 +11,8 @@ function appInit(){
         var source;
         // See https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
         window.addEventListener("message", (event) => {
-            alert(["iframe recieved: ", event.data].join(""));
-            
+            //alert(["iframe recieved: ", event.data].join(""));
+
             source = event.source;
             if (event.data == "ping") {
                 source.postMessage("pong");
@@ -44,12 +44,13 @@ function appInit(){
 
     // listening for console messages from iframe
     window.addEventListener("message", (event) => {
-        alert(`main recieved: ${event.data}`);
+        //alert(`main recieved: ${event.data}`);
         if (event.data == "clear") {
             console.clear(); 
         } else if (event.data == "pong") {
-            alert("pong recieved");
+            //alert("pong recieved");
             iframeReady = true;
+            console.clear();
             console.log("Console is ready! Try me~");
         } else {
             try {
