@@ -49,21 +49,16 @@ window.addEventListener("load", (event) => {
     input.value = `
 <!DOCTYPE html>
 <html>
-<head>
-
-<title>My Page</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<meta charset="utf-8">
-<style>
-
-</style>
-
-</head>
-<body>
-
-<h1>My Page</h1>
-
-</body>
+    <head>
+        <title>My Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta charset="utf-8">
+        <style>
+        </style>
+    </head>
+    <body>
+        <h1>My Page</h1>
+    </body>
 </html>
     `;
 });
