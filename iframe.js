@@ -1,9 +1,10 @@
+alert("iframe.js loaded");
 var source;
 
 // See https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
 window.addEventListener("message", (event) => {
     source = event.source;
-    source.postMessage("console ready");
+    source.postMessage("pong");
 
     // handle console functions
     console.clear = () => source.postMessage("clear");

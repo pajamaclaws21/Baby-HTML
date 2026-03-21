@@ -1,4 +1,6 @@
 function appInit(){
+    var iframeReady = false;
+
     console.log("app init started");
     console.log("writing to iframe");
 
@@ -7,10 +9,6 @@ function appInit(){
     // Adds code to iframe to alert us to console events. Obviously see iframe.js.
     iframeWindow.document.write("<script src='https://pajamaclaws.net/babyhtml/iframe.js'></script>");
     iframeWindow.document.close();
-
-    // sending ping to iframe
-    console.log("pinging iframe");
-    iframeWindow.postMessage("Signaling this is the source document");
 
     // setting up custom console
     console.log("setting up custom console");
@@ -26,7 +24,7 @@ function appInit(){
     window.addEventListener("message", (event) => {
         alert(event.data);
         if (event.data = "clear"){ console.clear(); };
-        if (event.data = "console ready"){ console.log("Console is ready! Try me~"); };
+        if (event.data = "pong"){ iframeReady = true; console.log("Console is ready! Try me~"); };
         try {
             let data = JSON.parse(event.data);
         } catch {
@@ -40,6 +38,10 @@ function appInit(){
         else if (data[0] == "warn"){ console.warn(data[1]); }
         else { console.log(`Console "${data[0]}": "${data[1]}"`); };
     });
+
+    // sending ping to iframe
+    console.log("Pinging Iframe");
+    setTimeout(iframeWindow.postMessage("ping"), 1000);
 };
 
 window.addEventListener("load", (event) => {appInit()});
