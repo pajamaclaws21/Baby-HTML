@@ -36,11 +36,11 @@ function appInit(){
     console.log("setting up custom console");
     var myConsole = document.getElementById("console-2dgds709ga");
     console.clear = () => myConsole.innerHTML = "<span>Console cleared</span><br>";
-    console.log = (x) => `<span style="color: black">${x}</span><br>` += myConsole.innerHTML;
-    console.error = (x) => `<span style="color: red"><b>Err</b> ${x}</span><br>` += myConsole.innerHTML;
-    console.debug = (x) => `<span style="color: blue"><b>Debug</b> ${x}</span><br>` += myConsole.innerHTML;
-    console.info = (x) => `<span style="color: green"><b>Info</b> ${x}</span><br>` += myConsole.innerHTML;
-    console.warn = (x) => `<span style="color: pink"><b>Warn</b> ${x}</span><br>` += myConsole.innerHTML;
+    console.log = (x) => myConsole.innerHTML = `<span style="color: black">${x}</span><br>` + myConsole.innerHTML;
+    console.error = (x) => myConsole.innerHTML = `<span style="color: red"><b>Err</b> ${x}</span><br>` + myConsole.innerHTML;
+    console.debug = (x) => myConsole.innerHTML = `<span style="color: blue"><b>Debug</b> ${x}</span><br>` + myConsole.innerHTML;
+    console.info = (x) => myConsole.innerHTML = `<span style="color: green"><b>Info</b> ${x}</span><br>` + myConsole.innerHTML;
+    console.warn = (x) => myConsole.innerHTML = `<span style="color: pink"><b>Warn</b> ${x}</span><br>` + myConsole.innerHTML;
 
     // listening for console messages from iframe
     window.addEventListener("message", (event) => {
