@@ -37,32 +37,34 @@
 	  <b style="font-size: 32px;">baby.html</b>
 	  <!-- long asf ids make collisions very rare"-->
 	  <button onclick="
-      var text = document.getElementById('text-12949124a09s70a').innerText; 
+      var text = document.getElementById('text-12949124a09s70a').value; 
       var iframeDocument = document.getElementById('contentwindow-v9sdv907s9d0v').contentWindow.document;
       iframeDocument.open();
       iframeDocument.write(text);
       iframeDocument.close()
       ">Run</button>
-    <button onclick="
+
+    <!--<button onclick="
       var oldTextContent;
       var textEntryElement = document.getElementById('text-12949124a09s70a');
-      oldTextContent = textEntryElement.innerText;
+      oldTextContent = textEntryElement.value;
       textEntryElement.innerHTML = '';
       textEntryElement.innerText = oldTextContent;
       hljs.highlightElement(textEntryElement);
-    ">Syntax Highlighting</button>
+      ">Syntax Highlighting</button>-->
 
     <main id="babyhtml-main-df8s97">
-      <div id="text-12949124a09s70a" class="language-html" contenteditable="true" spellcheck="false"></div>
+      <textarea id="text-12949124a09s70a" class="language-html" contenteditable="true" spellcheck="false"></textarea>
       <iframe id="contentwindow-v9sdv907s9d0v" src="about:blank"></iframe>
     </main>
 
     <div id="console-2dgds709ga"></div>
 
     <script src="https://pajamaclaws.net/babyhtml/app.js"></script>
+    <script src="https://pajamaclaws.net/babyhtml/autocomplete.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>-->
 
     <!--<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script>eruda.init();</script>-->
