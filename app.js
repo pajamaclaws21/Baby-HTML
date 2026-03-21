@@ -7,7 +7,7 @@ function appInit(){
     var iframeWindow = document.getElementById('contentwindow-v9sdv907s9d0v').contentWindow;
     iframeWindow.document.open();
     // Adds code to iframe to alert us to console events. Obviously see iframe.js.
-    iframeWindow.document.write(`
+    iframeWindow.document.write(`<script>
         var source;
         // See https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
         window.addEventListener("message", (event) => {
@@ -26,7 +26,7 @@ function appInit(){
 
         // Handle JS errors
         window.onerror = (message, loc, lineno, colno, error) => console.error(["error at ", loc, " (", lineno, ",", colno, "): ", message].join(""));
-    `);
+    </script>`);
     iframeWindow.document.close();
 
     // setting up custom console
