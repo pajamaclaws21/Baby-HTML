@@ -1,8 +1,8 @@
-alert("iframe.js loaded");
 var source;
 
 // See https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
 window.addEventListener("message", (event) => {
+    alert(`iframe: ${event.data}`);
     source = event.source;
     source.postMessage("pong");
 

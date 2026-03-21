@@ -22,7 +22,7 @@ function appInit(){
 
     // listening for console messages from iframe
     window.addEventListener("message", (event) => {
-        alert(event.data);
+        alert(`main: ${event.data}`);
         if (event.data = "clear"){ console.clear(); };
         if (event.data = "pong"){ iframeReady = true; console.log("Console is ready! Try me~"); };
         try {
