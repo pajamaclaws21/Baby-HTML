@@ -42,6 +42,7 @@ window.addEventListener("keydown", (event) => {
     } else if (key == "Tab") {
         insertString("    ");
         input.focus();
+        input.focus();
     };
 });
 
@@ -58,6 +59,5 @@ window.addEventListener("load", (event) => {
     <body>
         <h1>My Page</h1>
     </body>
-</html>
-    `;
+</html>`;
 });
